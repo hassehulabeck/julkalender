@@ -1,9 +1,9 @@
 <template>
   <section>
     <div v-for='dag in dagar' :key='dag.datum'
-    @click='open()'>
-      <h1 v-if="!showIt"> {{ dag.datum }} </h1>
-      <p v-if="showIt"> {{ dag.lottNummer }} </p>
+    @click='toggle()'>
+      <h1 v-show="!showIt"> {{ dag.datum }} </h1>
+      <p v-show="showIt"> {{ dag.lottNummer }} </p>
     </div>
   </section>
 </template>
@@ -25,8 +25,8 @@ export default {
     }
   },
   methods: {
-    open() {
-      this.showIt = true;
+    toggle() {
+      this.showIt = !this.showIt;
     }
   }
 }
